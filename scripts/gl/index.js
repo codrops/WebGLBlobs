@@ -46,9 +46,9 @@ export default class {
     const blob2 = new Blob(1.75, 0.3, 0.5, 1.5, 0.12, Math.PI * 1);    
     const blob3 = new Blob(6.0, 0.15, 1.0, 2.0, 0.3, Math.PI * 2);   
 
-    blob1.position.set(2, -3, 4);
-    blob2.position.set(6, 2, 2);
-    blob3.position.set(-8, 1.5, -10);
+    blob1.position.set(-1, -4, 4);
+    blob2.position.set(-8.5, 3.25, 2);
+    blob3.position.set(11, -3, -10);
 
     blob1.rotation.set(0, 0, 0);
     blob2.rotation.set(-0.4, 0, 0.5);

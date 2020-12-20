@@ -4,7 +4,8 @@
   "description": "Distorted blob spheres using Three.js",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "clean": "rm -rf dist",
+    "start": "parcel *.html"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/crnacura/WebGLBlobs#readme",
   "dependencies": {
+    "glsl-noise": "^0.0.0",
+    "glsl-rotate": "^1.1.0",
     "parcel-bundler": "^1.12.4",
     "three": "^0.123.0"
   },

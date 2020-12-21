@@ -19,6 +19,9 @@ export default class Blob extends THREE.Object3D {
         uAmp: { value: 6 },
         uHue: { value: color },
         uOffset: { value: offset },
+        red: { value: 0 },
+        green: { value: 0 },
+        blue: { value: 0 },
       },
       defines: {
         PI: Math.PI

@@ -1,12 +1,20 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import Blob from './Blob';
+import * as dat from 'dat.gui';
 
-function randomRange(min, max){
-  return Math.random() * (max-min) + min;
-}
+const gui = new dat.GUI();
 
-export default class {
+const obj = {
+  red: 0.0,
+  green: 0.1,
+  blue: 0.2
+};
+gui.add(obj, 'red', 0, 1, 0.01);
+gui.add(obj, 'green', 0, 1, 0.01);
+gui.add(obj, 'blue', 0, 1, 0.01);
+
+export default new class Gl {
   constructor() {
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
@@ -42,19 +50,19 @@ export default class {
 
   addElements() {
     // size, speed, color, freq, density, strength, offset
-    const blob1 = new Blob(0.8, 0.5, 0.0, 2.0, 0.05, Math.PI * 0.5);    
-    const blob2 = new Blob(1.75, 0.3, 0.5, 1.5, 0.12, Math.PI * 1);    
-    const blob3 = new Blob(6.0, 0.15, 1.0, 2.0, 0.3, Math.PI * 2);   
+    // const blob1 = new Blob(0.8, 0.5, 0.0, 2.0, 0.05, Math.PI * 0.5);    
+    // const blob2 = new Blob(1.75, 0.3, 0.5, 1.5, 0.12, Math.PI * 1);    
+    // const blob3 = new Blob(6.0, 0.15, 1.0, 2.0, 0.3, Math.PI * 2);   
 
-    blob1.position.set(-1, -4, 4);
-    blob2.position.set(-8.5, 3.25, 2);
-    blob3.position.set(11, -3, -10);
+    // blob1.position.set(-1, -4, 4);
+    // blob2.position.set(-8.5, 3.25, 2);
+    // blob3.position.set(11, -3, -10);
 
-    blob1.rotation.set(0, 0, 0);
-    blob2.rotation.set(-0.4, 0, 0.5);
-    blob3.rotation.set(0.4, 1.0, -0.4);
+    // blob1.rotation.set(0, 0, 0);
+    // blob2.rotation.set(-0.4, 0, 0.5);
+    // blob3.rotation.set(0.4, 1.0, -0.4);
 
-    this.scene.add(blob1, blob2, blob3);
+    // this.scene.add(blob1, blob2, blob3);
   }
 
   addCanvas() {
@@ -96,6 +104,10 @@ export default class {
     // Update uniforms
     this.scene.children.forEach(mesh => {
       mesh.material.uniforms.uTime.value = this.clock.getElapsedTime();
+
+      mesh.material.uniforms.red.value = obj.red;
+      mesh.material.uniforms.green.value = obj.green;
+      mesh.material.uniforms.blue.value = obj.blue;
     });
 
     // Lerp movement

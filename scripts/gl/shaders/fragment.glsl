@@ -5,6 +5,9 @@ varying float vDistort;
 
 uniform float uTime;
 uniform float uHue;
+uniform float red;
+uniform float green;
+uniform float blue;
 
 vec3 palette(in float t, in vec3 a, in vec3 b, in vec3 c, in vec3 d) {
   return a + b * cos(6.28318 * (c * t + d));
@@ -20,7 +23,7 @@ void main() {
   vec3 a = vec3(0.5, 0.5, 0.5);
   vec3 b = vec3(0.5, 0.5, 0.5);
   vec3 c = vec3(1.0, 1.0, 1.0);
-  vec3 d = vec3(0.00, 0.10, 0.20);
+  vec3 d = vec3(red, green, blue);
 
   // vec3 a = vec3(0.5, 0.5, 0.5);
   // vec3 b = vec3(0.5, 0.5, 0.5);

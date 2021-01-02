@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import Blob from './Blob';
 import * as dat from 'dat.gui';
+import gsap from 'gsap';
 
 const gui = new dat.GUI();
 
@@ -39,30 +40,12 @@ export default new class Gl {
     this.mouseTarget = new THREE.Vector2();
 
     this.init();
-    this.addElements();
     this.animate();
   }
 
   init() {
     this.addCanvas();
     this.addEvents();
-  }
-
-  addElements() {
-    // size, speed, color, freq, density, strength, offset
-    // const blob1 = new Blob(0.8, 0.5, 0.0, 2.0, 0.05, Math.PI * 0.5);    
-    // const blob2 = new Blob(1.75, 0.3, 0.5, 1.5, 0.12, Math.PI * 1);    
-    // const blob3 = new Blob(6.0, 0.15, 1.0, 2.0, 0.3, Math.PI * 2);   
-
-    // blob1.position.set(-1, -4, 4);
-    // blob2.position.set(-8.5, 3.25, 2);
-    // blob3.position.set(11, -3, -10);
-
-    // blob1.rotation.set(0, 0, 0);
-    // blob2.rotation.set(-0.4, 0, 0.5);
-    // blob3.rotation.set(0.4, 1.0, -0.4);
-
-    // this.scene.add(blob1, blob2, blob3);
   }
 
   addCanvas() {
@@ -101,6 +84,11 @@ export default new class Gl {
   render() {
     // this.controls.update();
 
+    // Remove loading class when scene has objects
+    if (this.scene.children.length > 0) {
+      document.body.classList.remove('loading');
+    }
+
     // Update uniforms
     this.scene.children.forEach(mesh => {
       mesh.material.uniforms.uTime.value = this.clock.getElapsedTime();
@@ -111,8 +99,8 @@ export default new class Gl {
     });
 
     // Lerp movement
-    this.mouseTarget.x = lerp(this.mouseTarget.x, this.mouse.x, 0.03);
-    this.mouseTarget.y = lerp(this.mouseTarget.y, this.mouse.y, 0.03);
+    this.mouseTarget.x = gsap.utils.interpolate(this.mouseTarget.x, this.mouse.x, 0.03);
+    this.mouseTarget.y = gsap.utils.interpolate(this.mouseTarget.y, this.mouse.y, 0.03);
 
     this.scene.rotation.set(
       this.mouseTarget.y * 0.25,
@@ -122,8 +110,4 @@ export default new class Gl {
 
     this.renderer.render(this.scene, this.camera);
   }
-}
-
-function lerp(start, end, t) {
-  return start * (1 - t) + end * t;
 }

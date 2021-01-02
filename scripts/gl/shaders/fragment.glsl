@@ -8,6 +8,7 @@ uniform float uHue;
 uniform float red;
 uniform float green;
 uniform float blue;
+uniform float uAlpha;
 
 vec3 palette(in float t, in vec3 a, in vec3 b, in vec3 c, in vec3 d) {
   return a + b * cos(6.28318 * (c * t + d));
@@ -32,5 +33,5 @@ void main() {
 
   vec3 color = palette(uHue + distort, a, b, c, d);
 
-  gl_FragColor = vec4(color, 1.0);
+  gl_FragColor = vec4(color, uAlpha);
 }

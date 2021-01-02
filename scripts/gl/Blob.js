@@ -22,12 +22,14 @@ export default class Blob extends THREE.Object3D {
         red: { value: 0 },
         green: { value: 0 },
         blue: { value: 0 },
+        uAlpha: { value: 1.0 },
       },
       defines: {
         PI: Math.PI
       },
       // wireframe: true,
       // side: THREE.DoubleSide
+      transparent: true,
     });
 
     this.mesh = new THREE.Mesh(this.geometry, this.material);

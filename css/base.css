@@ -121,6 +121,10 @@ main::before {
 	padding: 1rem 0;
 }
 
+.page-title div {
+	clip-path: polygon(0 0, var(--clip) 0, var(--clip) 100%, 0% 100%);
+}
+
 .demos {
 	grid-area: demos;
 }
@@ -130,9 +134,13 @@ main::before {
 	padding-top: 1rem;
 }
 
-.demos a:not(:first-child),
-.links a:not(:first-child) {
+.demos div:not(:first-child),
+.links div:not(:first-child) {
 	margin-left: 1rem;
+}
+
+.frame__demo {
+	display: inline-block;
 }
 
 .frame__demo--current {
@@ -181,6 +189,10 @@ main::before {
 	padding: 2rem 0;
 }
 
+.content span {
+	clip-path: polygon(0 0, 100% 0, 100% var(--clip), 0% var(--clip));
+}
+
 .play {
 	grid-area: play;
 	font-size: 12vw;
@@ -202,6 +214,10 @@ main::before {
 
 .credits--author {
 	grid-area: credits-2;
+}
+
+.credits--author div {
+	clip-path: polygon(0 0, var(--clip) 0, var(--clip) 100%, 0% 100%);	
 }
 
 @media screen and (min-width: 60em) {
@@ -263,4 +279,17 @@ main::before {
 	top: 0;
 	left: 0;
 	z-index: -1;
+}
+
+/* Style class utilities */
+.oh {
+	overflow: hidden;
+}
+
+.dib {
+	display: inline-block;
+}
+
+.db {
+	display: block;
 }

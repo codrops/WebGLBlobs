@@ -6,9 +6,16 @@ import gsap from 'gsap';
 class App {
   constructor() {
     this.blobs = [];
-
     this.addBlobs();
-    this.animBlobs();
+
+    // Main animation tl
+    this.tl = gsap.timeline({
+      delay: 0.25,
+    });
+
+    this.tl
+      .add(this.article())
+      .add(this.animBlobs(), '-=1');
   }
 
   addBlobs() {
@@ -30,13 +37,51 @@ class App {
     Gl.scene.add(...this.blobs);
   }
 
+  article() {
+    // Main content
+    const tl = gsap.timeline({
+      defaults: {
+        ease: 'power3.inOut',
+      }
+    });
+
+    // Content clip
+    const content = document.querySelector('.content span');
+    const contentClip = { x: 0 };    
+
+    tl
+      .from('.title div, .subtitle div', {
+        duration: 2,
+        xPercent: -100,
+        stagger: 0.2,
+      })
+      .from('.menu__inner-translate', {
+        duration: 1.5,
+        yPercent: -100,
+      }, '-=1.5')
+      .to(contentClip, {
+        duration: 1.5,
+        x: 100,
+        onUpdate: () => {
+          content.style.setProperty('--clip', `${contentClip.x}%`);
+        },
+      }, '-=1')
+      .from('.play', {
+        duration: 1,
+        scale: 0,
+        rotate: '-62deg',
+      }, '-=1');
+
+    return tl;    
+  }
+
   animBlobs() {
+    // Move Threejs Blobs
     const tl = gsap.timeline({
       defaults: {
         duration: 2,
         ease: 'power3.inOut'
       },
-      delay: 1,
     });
 
     const uniformAlphas = [
@@ -54,6 +99,8 @@ class App {
         stagger: 0.2,
         ease: 'power3.inOut'
       }, 0);
+
+    return tl;
   }
 }
 

@@ -4,16 +4,16 @@ import Blob from './Blob';
 import * as dat from 'dat.gui';
 import gsap from 'gsap';
 
-const gui = new dat.GUI();
+// const gui = new dat.GUI();
 
 const obj = {
   red: 0.0,
   green: 0.1,
   blue: 0.2
 };
-gui.add(obj, 'red', 0, 1, 0.01);
-gui.add(obj, 'green', 0, 1, 0.01);
-gui.add(obj, 'blue', 0, 1, 0.01);
+// gui.add(obj, 'red', 0, 1, 0.01);
+// gui.add(obj, 'green', 0, 1, 0.01);
+// gui.add(obj, 'blue', 0, 1, 0.01);
 
 export default new class Gl {
   constructor() {
@@ -93,9 +93,9 @@ export default new class Gl {
     this.scene.children.forEach(mesh => {
       mesh.material.uniforms.uTime.value = this.clock.getElapsedTime();
 
-      mesh.material.uniforms.red.value = obj.red;
-      mesh.material.uniforms.green.value = obj.green;
-      mesh.material.uniforms.blue.value = obj.blue;
+      // mesh.material.uniforms.red.value = obj.red;
+      // mesh.material.uniforms.green.value = obj.green;
+      // mesh.material.uniforms.blue.value = obj.blue;
     });
 
     // Lerp movement

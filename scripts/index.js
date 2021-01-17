@@ -15,7 +15,7 @@ class App {
 
     this.tl
       .add(this.article())
-      .add(this.animBlobs(), '-=1');
+      .add(this.animBlobs(), '-=1.5');
   }
 
   addBlobs() {
@@ -53,7 +53,7 @@ class App {
       .from('.title div, .subtitle div', {
         duration: 2,
         xPercent: -100,
-        stagger: 0.2,
+        // stagger: 0.1,
       })
       .from('.menu__inner-translate', {
         duration: 1.5,
@@ -65,12 +65,12 @@ class App {
         onUpdate: () => {
           content.style.setProperty('--clip', `${contentClip.x}%`);
         },
-      }, '-=1')
+      }, '-=1.25')
       .from('.play', {
         duration: 1,
         scale: 0,
         rotate: '-62deg',
-      }, '-=1');
+      }, '-=1.5');
 
     return tl;    
   }

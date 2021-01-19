@@ -1,6 +1,4 @@
 varying vec2 vUv;
-varying vec3 vNormal;
-varying vec3 vPos;
 varying float vDistort;
 
 uniform float uTime;
@@ -21,8 +19,7 @@ float map(float value, float inMin, float inMax, float outMin, float outMax) {
 
 void main() {
   vUv = uv;
-  vNormal = normal;
-
+  
   float t = uTime * uSpeed;
   float distortion = pnoise((normal + t) * uNoiseDensity, vec3(10.0)) * uNoiseStrength;
 
@@ -32,7 +29,6 @@ void main() {
 
   pos *= map(sin(uTime + uOffset), -1.0, 1.0, 1.0, 1.2);
 
-  vPos = pos;
   vDistort = distortion;
 
   gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);

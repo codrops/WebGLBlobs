@@ -1,12 +1,12 @@
 # Blobs with Three.js
 
-*Description*, *author*
+Demos for the tutorial on how to deform and color spheres in Three.js. By [Mario Carrillo](https://twitter.com/marioecg).
 
-![Image Title](link)
+![Image](https://tympanus.net/codrops/wp-content/uploads/2021/01/blob.jpg)
 
-[Article on Codrops](https://tympanus.net/codrops/?p=)
+[Article on Codrops](https://tympanus.net/codrops/?p=52932)
 
-[Demo](http://tympanus.net/Development/.../)
+[Demo](http://tympanus.net/Tutorials/WebGLBlobs/)
 
 
 ## Installation
@@ -29,20 +29,14 @@ Create the build:
 npm run build
 ```
 
-## Credits
-
-*third party resources*
-
 ## Misc
-
-Follow *Author*: [Twitter](), [Dribbble](), [Google+](), [GitHub]() 
 
 Follow Codrops: [Twitter](http://www.twitter.com/codrops), [Facebook](http://www.facebook.com/codrops), [GitHub](https://github.com/codrops), [Instagram](https://www.instagram.com/codropsss/)
 
 ## License
 [MIT](LICENSE)
 
-Made with :blue_heart: by [Codrops](http://www.codrops.com)
+Made with :blue_heart:  by [Codrops](http://www.codrops.com)
 
 
 

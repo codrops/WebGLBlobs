@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crnacura/WebGLBlobs.git"
+    "url": "git+https://github.com/codrops/WebGLBlobs.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/crnacura/WebGLBlobs/issues"
+    "url": "https://github.com/codrops/WebGLBlobs/issues"
   },
-  "homepage": "https://github.com/crnacura/WebGLBlobs#readme",
+  "homepage": "https://github.com/codrops/WebGLBlobs#readme",
   "dependencies": {
     "dat.gui": "^0.7.7",
     "glsl-noise": "^0.0.0",

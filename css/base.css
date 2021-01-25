@@ -14,12 +14,17 @@ body {
 	--color-bg: #060606;
 	--color-link: #fff;
 	--color-link-hover: #fff;
-	--color-line: #292929;
+	--color-line: rgba(82,77,73,0.38);
 	color: var(--color-text);
 	background-color: var(--color-bg);
 	font-family: termina, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.demo-2 {
+	--color-text: #000000;
+    --color-bg: #c7c7c7;
 }
 
 /* Page Loader */
@@ -184,7 +189,7 @@ main::before {
 .content {
 	margin: 0;
 	font-size: 1.15rem;
-	font-size: clamp(1.15rem, 1vw, 3rem);
+	font-size: clamp(1rem, 2vh, 3rem);
 	grid-area: content;
 	padding: 2rem 0;
 }
@@ -228,7 +233,7 @@ main::before {
 		height: 100vh;
 		display: grid;
 		grid-template-columns: 8rem 12vh 9rem 1fr 1fr;
-		grid-template-rows: 4rem 4rem auto auto 1fr 2.5rem;
+		grid-template-rows: 4rem 4rem min-content min-content 1fr 2.5rem;
 		grid-template-areas: 'logo ... ... pagetitle links'
 					'logo ... ... demos ...'
 					'... ... ... title title'
@@ -261,7 +266,7 @@ main::before {
 	}
 
 	.content {
-		width: 80%;
+		width: 90%;
 		padding: 0;
 	}
 

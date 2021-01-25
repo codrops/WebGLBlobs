@@ -21,8 +21,8 @@ class App {
   addBlobs() {
     // size, speed, color, freq, density, strength, offset
     const blob1 = new Blob(1.75, 0.3, 0.5, 1.5, 0.12, Math.PI * 1);    
-    const blob2 = new Blob(6.0, 0.15, 1.0, 2.0, 0.3, Math.PI * 2);   
-    const blob3 = new Blob(0.8, 0.5, 0.0, 2.0, 0.05, Math.PI * 0.5);    
+    const blob2 = new Blob(6.0, 0.15, 0.4, 2.0, 0.3, Math.PI * 2);   
+    const blob3 = new Blob(0.8, 0.5, 0.1, 2.0, 0.05, Math.PI * 0.5);    
 
     blob1.position.set(-8.5, 3.25, 2);
     blob2.position.set(11, -3, -10);

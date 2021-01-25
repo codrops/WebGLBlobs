@@ -5,10 +5,10 @@ import gsap from 'gsap';
 
 export default new class Gl {
   constructor() {
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setClearColor('black', 1);
+    this.renderer.setClearColor( 0xffffff, 0 );
 
     this.camera = new THREE.PerspectiveCamera(
       45,
@@ -19,6 +19,7 @@ export default new class Gl {
     this.camera.position.set(0, 0, 18);
 
     this.scene = new THREE.Scene();
+
 
     // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
